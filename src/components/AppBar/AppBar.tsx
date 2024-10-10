@@ -6,7 +6,7 @@ import { Header, ContainerNav, Svg } from "./AppBarstyled";
 import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect} from 'react';
 import sprite from '../../images/sprite.svg';
-import {Nav} from '../Nav/Nav.js';
+import {Nav} from '../Nav/Nav';
 import {BurgerMenu} from '../BurgerMenu/BurgerMenu';
 import { UserBar } from "../UserBar/UserBar";
 

@@ -6,9 +6,9 @@ import { FiEyeOff, FiEye, FiCheck, FiX } from 'react-icons/fi';
 import { useSelector, useDispatch } from "react-redux";
 import { registr } from '../../redux/auth/operations';
 import { Form, Input, ButtonEye, Container, Error, Button, InputContainer,
-         ValidationIcon, SuccessMessage } from './RegistrationForm. styled.js';
+         ValidationIcon, SuccessMessage } from './RegistrationForm. styled';
 import { useNavigate } from 'react-router-dom';
-import {selectToken} from '../../redux/auth/selects.js';
+import {selectToken} from '../../redux/auth/selects';
 import { AppDispatch } from '../../redux/store';
 
 const useAppDispatch:()=>AppDispatch=useDispatch;

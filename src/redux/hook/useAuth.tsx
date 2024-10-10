@@ -4,7 +4,7 @@ import {
   selectUser,
   selectIsLoggedIn,
   selectIsRefreshing,
-} from '../auth/selects.js';
+} from '../auth/selects';
 import { User } from '../auth/authSlice.js';
 
 // interface useAuthProps{

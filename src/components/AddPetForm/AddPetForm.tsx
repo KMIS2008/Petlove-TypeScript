@@ -14,12 +14,12 @@ import {addPet, AddPetProps} from '../../redux/operations';
 import { Title, TitleSpan, ContainerForm, Avatar, AvatarNew,
     RadioGroup, SvgIcon, Error, ContainerInput, InputWrapper, 
     Input, ButtonLoad, ButtonLoadSpan,SuccessMessage, 
-    WrapperSelect, SvgCalendar, WrapperButton, Button } from './AddPetForm .styled.js';
+    WrapperSelect, SvgCalendar, WrapperButton, Button } from './AddPetForm .styled';
 import { useDispatch } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
 import DatePicker from 'react-datepicker';
 import { AppDispatch } from '../../redux/store';
-import {  ControlProps, OptionProps } from 'react-select';
+
 
 interface FormValue{
   title:string,

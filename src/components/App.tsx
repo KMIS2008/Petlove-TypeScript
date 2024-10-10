@@ -20,7 +20,7 @@ const Login = lazy(()=> import ('../Pages/Login/Login'));
 const Profile = lazy(()=> import ('../Pages/Profile/Profile'));
 const News = lazy(()=> import ('../Pages/News/News'));
 const Notices = lazy(()=> import ('../Pages/Notices/Notices'));
-const AddPet = lazy(()=> import ('../Pages/AddPet/AddPet.js'));
+const AddPet = lazy(()=> import ('../Pages/AddPet/AddPet'));
 const FriendPage = lazy(()=> import ('../Pages/Friends/Friends'));
 
 const ErrorPage = lazy(()=> import ('../Pages/ErrorPage/ErrorPage'));
