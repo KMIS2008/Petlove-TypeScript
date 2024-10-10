@@ -1,8 +1,18 @@
 import {fetchFriends} from './operations';
 import { createSlice, PayloadAction, SerializedError} from '@reduxjs/toolkit';
 
+export interface FriendsProps{
+    workDays:string, 
+    imageUrl:string, 
+    title:string, 
+    email:string, 
+    address:string, 
+    phone:string,
+    _id:string
+}
+
 interface FreindProps{
-    friends: any,
+    friends?: FriendsProps[],
     totalPages: null | string,
     isLoading: boolean,
     error: null | string,
@@ -20,7 +30,7 @@ const handlPending = (state:FreindProps) => {
     state.isLoading = true;
 };
 
-const handlFulfilled = (state:FreindProps, action:PayloadAction<string[]>)=>{
+const handlFulfilled = (state:FreindProps, action:PayloadAction<FriendsProps[]>)=>{
     state.friends = action.payload;
     state.isLoading = false;
     state.error = null;

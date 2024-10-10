@@ -8,6 +8,12 @@ import { RootState } from "../store";
     email: string, 
     password: string
   }
+
+  interface RegistrationCredentials {
+    name: string;
+    email: string;
+    password: string;
+  }
   
 axios.defaults.baseURL = "https://petlove.b.goit.study/api";
 const User_URL='/users/current';
@@ -22,7 +28,7 @@ const setAuthHeader = token => {
 
   export const registr = createAsyncThunk(
     'auth/register',
-    async (credentials, thunkAPI) => {
+    async (credentials:RegistrationCredentials, thunkAPI) => {
       try {
         const res = await axios.post('/users/signup', credentials);
         setAuthHeader(res.data.token);

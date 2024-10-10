@@ -20,7 +20,7 @@ interface NotticeListProps{
     trash:boolean
 }
 
-export const NoticesList:React.FC<NotticeListProps>=({notices, trash})=>{
+export const NoticesList:React.FC<NotticeListProps>=({notices, trash=false})=>{
 
     return (
         <Container>

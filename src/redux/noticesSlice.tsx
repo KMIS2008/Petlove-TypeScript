@@ -1,13 +1,26 @@
 import {fetchnotices, fetchnoticesByKeyword, addNotices, removeNotices, fetchNoticesId, getNoticesFilter} from './operations';
 import { createSlice, PayloadAction, SerializedError} from '@reduxjs/toolkit';
 
+export interface NoticeProps{
+    imgURL:string,
+    title:string, 
+    popularity:string, 
+    comment:string, 
+    name:string, 
+    birthday:string, 
+    species:string, 
+    category:string, 
+    sex:string, 
+    _id:string
+}
+
 interface NoticesProps{
-    notices?:any,
-    noticeId?:any,
-    isFavorite?: any,
-    totalPages?: string | null,
-    isLoading?: boolean,
-    error?: null | string, 
+    notices?:NoticeProps[],
+    noticeId:any,
+    isFavorite: any,
+    totalPages: number | null,
+    isLoading: boolean,
+    error: null | string, 
 }
 
 
@@ -15,7 +28,7 @@ const allNotices:NoticesProps ={
     notices:[],
     noticeId:[],
     isFavorite: [],
-    totalPages: null,
+    totalPages: null ,
     isLoading: false,
     error: null, 
 }
@@ -23,7 +36,7 @@ const allNotices:NoticesProps ={
 const handlPending = (state:NoticesProps)=> {
     state.isLoading = true}
 
-const handlFulfilled = (state:NoticesProps, action: PayloadAction<{results:string[], totalPages:string}>)=>{
+const handlFulfilled = (state:NoticesProps, action: PayloadAction<{results:NoticeProps[], totalPages:number}>)=>{
     state.notices = action.payload.results;
     state.isLoading = false;
     state.error = null;

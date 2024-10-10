@@ -3,13 +3,13 @@ import { createSlice, PayloadAction, SerializedError} from '@reduxjs/toolkit';
 
 interface NewsProps{
     news:any,
-    totalPages: null | string,
+    totalPages: number,
     isLoading: boolean,
     error: null | string, 
 }
 const allNews:NewsProps ={
     news:[],
-    totalPages: null,
+    totalPages: 1,
     isLoading: false,
     error: null, 
 }
@@ -17,7 +17,7 @@ const allNews:NewsProps ={
 const handlPending = (state:NewsProps)=> {
     state.isLoading = true}
 
-const handlFulfilled = (state:NewsProps, action: PayloadAction<{results:string[], totalPages:string}>)=>{
+const handlFulfilled = (state:NewsProps, action: PayloadAction<{results:string[], totalPages:number}>)=>{
     state.news = action.payload.results;
     state.isLoading = false;
     state.error = null;

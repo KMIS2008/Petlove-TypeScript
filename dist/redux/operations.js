@@ -242,11 +242,11 @@ export const getNoticesFilter = createAsyncThunk('notices/filter', async ({ page
     if (location) {
         params.append('locationId', location);
     }
-    if (popularity) {
-        params.append('byPopularity', popularity);
+    if (popularity !== undefined) {
+        params.append('byPopularity', popularity.toString());
     }
-    if (price) {
-        params.append('byPrice', price);
+    if (price !== undefined) {
+        params.append('byPrice', price.toString());
     }
     try {
         const response = await axios.get(`${Notices_URL}?${params.toString()}`);

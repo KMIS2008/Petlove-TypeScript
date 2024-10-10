@@ -2,7 +2,7 @@ import { fetchnews, fetchNewsByKeyword } from './operations';
 import { createSlice } from '@reduxjs/toolkit';
 const allNews = {
     news: [],
-    totalPages: null,
+    totalPages: 1,
     isLoading: false,
     error: null,
 };

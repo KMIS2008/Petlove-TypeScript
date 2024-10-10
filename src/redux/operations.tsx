@@ -12,11 +12,11 @@ const User_URL='/users/current';
 
 interface FetchnoticesByKeywordProps{
     keyword:string, 
-    pageNumber:string
+    pageNumber:number
 }
 
 
-interface AddPetProps{
+export interface AddPetProps{
     title:string,
     name:string,
     species:string,
@@ -32,9 +32,9 @@ interface GetNoticesFilterProps{
     category:string, 
     gender:string, 
     species:string, 
-    location:string, 
-    popularity:string, 
-    price: string
+    location?:string|null, 
+    popularity?:boolean, 
+    price?: boolean
 }
 
 export interface DataProps{
@@ -44,7 +44,8 @@ export interface DataProps{
     avatar?:string,
   }
 
-export const fetchnews = createAsyncThunk('news/allNews', async(pageNumber, thunkAPI)=>{
+  
+export const fetchnews = createAsyncThunk('news/allNews', async(pageNumber:number, thunkAPI)=>{
     try {
         const response = await axios.get(`${NEWS_URL}?page=${pageNumber}&limit=6`);
         return response.data;
@@ -82,7 +83,7 @@ export const fetchNewsByKeyword = createAsyncThunk<any, FetchnoticesByKeywordPro
     }
 });
 
-export const fetchnotices = createAsyncThunk('notices', async(pageNumber, thunkAPI)=>{
+export const fetchnotices = createAsyncThunk('notices', async(pageNumber:number, thunkAPI)=>{
     try {
         const response = await axios.get(`${Notices_URL}?page=${pageNumber}&limit=6`);
         return response.data;
@@ -295,11 +296,11 @@ export const getNoticesFilter = createAsyncThunk<any,GetNoticesFilterProps, { st
     if (location) {
         params.append('locationId', location);
       }
-    if (popularity) {
-        params.append('byPopularity', popularity);
+      if (popularity !== undefined) {
+        params.append('byPopularity', popularity.toString());
       }
-    if (price) {
-        params.append('byPrice', price);
+      if (price !== undefined) {
+        params.append('byPrice', price.toString());
       }
 
     try {
