@@ -1,5 +1,6 @@
 import { RootState } from "../redux/store";
 
+
   
   export const selectorNews=(state:RootState)=>state.news.news;
   export const selectorTotalPages=(state:RootState)=>state.news.totalPages;

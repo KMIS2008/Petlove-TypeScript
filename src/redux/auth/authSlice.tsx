@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { registr, logIn, logOut, refreshUser,fetchUserEdit } from './operations';
 
 export interface User{
